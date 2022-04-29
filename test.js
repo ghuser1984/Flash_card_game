@@ -24,13 +24,14 @@ function randomAnswerRight() {
   const rand = Math.floor(Math.random() * arr.length);
   return arr[rand];
 }
-console.log(randomAnswerRight());
+// console.log(randomAnswerRight());
 
 function randomAnswerWrong() {
   const arr = ['LOH!', 'LOH V KVADRATE!', 'Может не стоит продолжать?', 'Чел, ты...', 'Суета..'];
   const rand = Math.floor(Math.random() * arr.length);
   return arr[rand];
 }
-console.log(randomAnswerWrong());
+// console.log(randomAnswerWrong());
 
-module.exports = randomAnswerRight, randomAnswerWrong;
+module.exports = randomAnswerRight,
+module.exports = randomAnswerWrong;
