@@ -1,7 +1,10 @@
 const readlineSync = require('readline-sync');
 const fs = require('fs');
+const color = require('cli-color');
 const randomAnswerRight = require('./test.js');
 const randomAnswerWrong = require('./test.js');
+
+const topics = fs.readdirSync('./topics');
 
 function runCode() {
   const topics = fs.readdirSync('./topics');
@@ -29,24 +32,28 @@ function runCode() {
       answer,
     };
   }
-
+  const arrTop = [];
+  for (let i = 0; i < topics.length; i++) {
+    arrTop.push(topics[i].slice(0, -4));
+  }
   let rightAnswers = 0;
   let wrongAnswers = 0;
   for (let j = 0; j <= topics.length - 1; j += 1) {
-    const topicNumber = readlineSync.keyInSelect(topics, 'Wich topic?');
+    const topicNumber = readlineSync.keyInSelect(arrTop, color.blue('Выбери тему:'));
     if (topicNumber === -1) { console.log('Ok,bye quitter 🪰'); return; }
     const checkTopic = new Topic(topicNumber);
     for (let i = 0; i <= checkTopic.questions.length - 1; i += 1) {
-      const questionAsked = readlineSync.question(`${checkTopic.questions[i].question}\n`);
+      const questionAsked = readlineSync.question(color.yellow(`${checkTopic.questions[i].question}\n`));
       if (questionAsked === checkTopic.questions[i].answer) {
-        console.log(randomAnswerRight());
+        console.log(color.green(randomAnswerRight()));
         rightAnswers += 1;
       } else {
-        console.log(`${randomAnswerWrong()}; \nRight answer is ${checkTopic.questions[i].answer}\n`);
+        console.log(color.red(`${randomAnswerWrong()}; \nПравильный ответ ${checkTopic.questions[i].answer}\n`));
         wrongAnswers += 1;
       }
     }
-    console.log(`You are done. Right Answers: ${rightAnswers}. Wrong answers: ${wrongAnswers}`);
+    console.log(color.blue('Ну, ты закончил. Молодец, наверное ') + color.green(`Правильно: ${rightAnswers}`) + color.red(` Неправильно: ${wrongAnswers}`));
+    // console.log(color.`Ну, ты закончил. Правильных ответов: ${rightAnswers}. Неправильных ответов: ${wrongAnswers}`);
     rightAnswers = 0;
     wrongAnswers = 0;
   }
