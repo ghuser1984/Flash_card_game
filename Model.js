@@ -1,5 +1,7 @@
 const readlineSync = require('readline-sync');
 const fs = require('fs');
+const randomAnswerRight = require('./test.js');
+const randomAnswerWrong = require('./test.js');
 
 function runCode() {
   const topics = fs.readdirSync('./topics');
@@ -37,10 +39,10 @@ function runCode() {
     for (let i = 0; i <= checkTopic.questions.length - 1; i += 1) {
       const questionAsked = readlineSync.question(`${checkTopic.questions[i].question}\n`);
       if (questionAsked === checkTopic.questions[i].answer) {
-        console.log('You are right');
+        console.log(randomAnswerRight());
         rightAnswers += 1;
       } else {
-        console.log('wrong!! ' + `Right answer is ${checkTopic.questions[i].answer}`);
+        console.log(`${randomAnswerWrong()}; \nRight answer is ${checkTopic.questions[i].answer}\n`);
         wrongAnswers += 1;
       }
     }

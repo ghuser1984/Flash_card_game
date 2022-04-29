@@ -32,3 +32,5 @@ function randomAnswerWrong() {
   return arr[rand];
 }
 console.log(randomAnswerWrong());
+
+module.exports = randomAnswerRight, randomAnswerWrong;
