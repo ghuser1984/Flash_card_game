@@ -1,7 +1,5 @@
 class View {
-  constructor() {
-
-  }
+  constructor() {}
 }
 
-module.exports = View
+module.exports = View;

@@ -1,7 +1,7 @@
 class Controller {
   constructor(model, view) {
-    this.model = model
-    this.view = view
+    this.model = model;
+    this.view = view;
   }
 
   run() {
@@ -9,16 +9,14 @@ class Controller {
     // Попутно передаем метод контроллера this.printTopicsController,
     // так как нам нужно отправить сформинованное меню на вывод в экземпляр класса view
     // после того, как завершится асинхронная операция чтения папки
-    // Здесь this.printTopicsController — является callback'ом  
-    this.model.readTopics(this.printTopicsController)
+    // Здесь this.printTopicsController — является callback'ом
+    this.model.readTopics(this.printTopicsController);
   }
 
   printTopicsController(topicsMenu) {
-    // Тут нужно попросить экземпляр класса view вывести меню пользователю, 
+    // Тут нужно попросить экземпляр класса view вывести меню пользователю,
     // а также дождаться ответа последнего
   }
-
-  
 }
 
-module.exports = Controller
+module.exports = Controller;
