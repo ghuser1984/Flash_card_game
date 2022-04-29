@@ -4,4 +4,4 @@ class View {
   }
 }
 
-module.exports = View
+module.exports = View;
