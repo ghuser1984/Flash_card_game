@@ -1,0 +1,29 @@
+{
+  "name": "team_project_flashcard",
+  "version": "1.0.0",
+  "description": "## Введение Вам предстоит создать приложение для флэш-карт, которое должно работать как показано на Рисунке 1. Сосредоточьтесь на написании элегантного, объектно-ориентированного кода, не забывая при этом о качественном проектировании и об отборе лучших методов.",
+  "main": "Controller.js",
+  "scripts": {
+    "start": "node runner.js",
+    "test": "jest -i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghuser1984/Flash_card_game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghuser1984/Flash_card_game/issues"
+  },
+  "homepage": "https://github.com/ghuser1984/Flash_card_game#readme",
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.0.2",
+    "readline-sync": "^1.4.10"
+  }
+}
